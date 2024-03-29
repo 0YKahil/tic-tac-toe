@@ -45,7 +45,7 @@ int main() {
 
     showBoard();
     printWinner(winner);
-
+    system("pause");
     return 0;
 }
 
@@ -179,12 +179,12 @@ char checkWinner() {
 
 void printWinner(char winner) {
     if (winner == PLAYER) {
-        printf("YOU WIN!");
+        printf("\nYOU WIN!\n");
     }
     else if (winner == COMP) {
-        printf("YOU LOSE!");
+        printf("\nYOU LOSE!\n");
     }
     else {
-        printf("DRAW!");
+        printf("\nDRAW!\n");
     }
 }
