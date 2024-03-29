@@ -27,7 +27,7 @@ int main() {
     resetBoard();
 
     /* game loop */
-    while (winner == ' ' && checkFreeSpaces() == 0) {
+    while (winner == ' ' && checkFreeSpaces() != 0) {
         showBoard();
 
         playerMove();
@@ -98,12 +98,12 @@ void playerMove() {
 
     do {
         printf("Enter row #(1-3): ");
-        scanf("%d", &x);
+        scanf_s("%d", &x);
         x--;
 
         printf("Enter column #(1-3): ");
-        scanf("%d", &y);
-        x--;
+        scanf_s("%d", &y);
+        y--;
 
         if (board[x][y] != ' ') {
             printf("Invalid Move!\n");
@@ -163,8 +163,11 @@ char checkWinner() {
 
     /* Checking diagonal win condition */
     for (int k = 0; k < 3; k++) {
-        if ((board[0][0] == board[1][1] && board[0][0] == board[2][2]) ||
-            (board[2][0] == board[1][1] && board[2][0] == board[0][2])) {
+        if (board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
+            return board[1][1];
+        }
+
+        if (board[2][0] == board[1][1] && board[2][0] == board[0][2]) {
             return board[1][1];
         }
     }
